@@ -1,0 +1,22 @@
+# Credentials — never commit these
+config/config.yaml
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Data files (too large for git)
+data/raw/
+data/processed/
+
+# Tableau
+*.twbx
+*.hyper
+
+# OS
+.DS_Store
+Thumbs.db
