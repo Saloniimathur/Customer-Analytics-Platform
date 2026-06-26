@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 400" font-family="'Segoe UI', system-ui, -apple-system, Roboto, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#9AA9B8"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="400" fill="#F4F7FA"/>
+
+  <!-- Title -->
+  <rect x="40" y="34" width="34" height="4" rx="2" fill="#1E6FD0"/>
+  <text x="40" y="62" font-size="22" font-weight="700" fill="#16222E">Customer 360 — Data Pipeline Architecture</text>
+  <text x="40" y="86" font-size="13.5" fill="#5A6B7B">Excel source &#8594; Python ETL &#8594; Snowflake star schema &#8594; SQL analytics</text>
+
+  <!-- Arrows (drawn under cards) -->
+  <g stroke="#9AA9B8" stroke-width="1.8" marker-end="url(#arrow)">
+    <line x1="179" y1="200" x2="221" y2="200"/>
+    <line x1="374" y1="200" x2="416" y2="200"/>
+    <line x1="569" y1="200" x2="611" y2="200"/>
+    <line x1="764" y1="200" x2="806" y2="200"/>
+    <line x1="959" y1="200" x2="1001" y2="200"/>
+  </g>
+  <!-- Arrow annotations -->
+  <text x="200" y="190" font-size="10" font-style="italic" fill="#7A8794" text-anchor="middle">extract</text>
+  <text x="395" y="178" font-size="10.5" font-style="italic" fill="#1E6FD0" text-anchor="middle">raw_combined.csv</text>
+  <text x="590" y="178" font-size="10.5" font-style="italic" fill="#1E6FD0" text-anchor="middle">5 CSV tables</text>
+  <text x="785" y="190" font-size="10" font-style="italic" fill="#7A8794" text-anchor="middle">write_pandas</text>
+  <text x="980" y="190" font-size="10" font-style="italic" fill="#7A8794" text-anchor="middle">query</text>
+
+  <!-- ===== Card 1: Source ===== -->
+  <g>
+    <rect x="30" y="150" width="149" height="100" rx="9" fill="#FFFFFF" stroke="#CBD5DD" stroke-width="1.5"/>
+    <text x="104" y="177" font-size="13.5" font-weight="700" fill="#5A6B7B" text-anchor="middle">Excel Source</text>
+    <line x1="46" y1="187" x2="162" y2="187" stroke="#5A6B7B" stroke-opacity="0.3"/>
+    <text x="104" y="208" font-size="10.5" fill="#44535F" text-anchor="middle">.xlsx · 2 sheets</text>
+    <text x="104" y="226" font-size="10.5" fill="#44535F" text-anchor="middle">~1M raw rows</text>
+    <text x="104" y="244" font-size="10.5" fill="#44535F" text-anchor="middle">2009–2011</text>
+  </g>
+
+  <!-- ===== Card 2: extract ===== -->
+  <g>
+    <rect x="225" y="150" width="149" height="100" rx="9" fill="#FFFFFF" stroke="#BBD2EC" stroke-width="1.5"/>
+    <text x="299" y="177" font-size="13.5" font-weight="700" fill="#1E6FD0" text-anchor="middle">extract.py</text>
+    <line x1="241" y1="187" x2="357" y2="187" stroke="#1E6FD0" stroke-opacity="0.32"/>
+    <text x="299" y="208" font-size="10.5" fill="#44535F" text-anchor="middle">Read + concat</text>
+    <text x="299" y="226" font-size="10.5" fill="#44535F" text-anchor="middle">Sanity checks</text>
+    <text x="299" y="244" font-size="10.5" fill="#44535F" text-anchor="middle">Profiling</text>
+  </g>
+
+  <!-- ===== Card 3: transform ===== -->
+  <g>
+    <rect x="420" y="150" width="149" height="100" rx="9" fill="#FFFFFF" stroke="#BBD2EC" stroke-width="1.5"/>
+    <text x="494" y="177" font-size="13.5" font-weight="700" fill="#1E6FD0" text-anchor="middle">transform.py</text>
+    <line x1="436" y1="187" x2="552" y2="187" stroke="#1E6FD0" stroke-opacity="0.32"/>
+    <text x="494" y="208" font-size="10.5" fill="#44535F" text-anchor="middle">Clean · Enrich</text>
+    <text x="494" y="226" font-size="10.5" fill="#44535F" text-anchor="middle">RFM · CLV</text>
+    <text x="494" y="244" font-size="10.5" fill="#44535F" text-anchor="middle">Surrogate keys</text>
+  </g>
+
+  <!-- ===== Card 4: load ===== -->
+  <g>
+    <rect x="615" y="150" width="149" height="100" rx="9" fill="#FFFFFF" stroke="#BBD2EC" stroke-width="1.5"/>
+    <text x="689" y="177" font-size="13.5" font-weight="700" fill="#1E6FD0" text-anchor="middle">load.py</text>
+    <line x1="631" y1="187" x2="747" y2="187" stroke="#1E6FD0" stroke-opacity="0.32"/>
+    <text x="689" y="208" font-size="10.5" fill="#44535F" text-anchor="middle">Dims → Fact</text>
+    <text x="689" y="226" font-size="10.5" fill="#44535F" text-anchor="middle">10K batches</text>
+    <text x="689" y="244" font-size="10.5" fill="#44535F" text-anchor="middle">Verify counts</text>
+  </g>
+
+  <!-- ===== Card 5: Snowflake ===== -->
+  <g>
+    <rect x="810" y="150" width="149" height="100" rx="9" fill="#FFF7EF" stroke="#E8C39A" stroke-width="1.5"/>
+    <text x="884" y="177" font-size="13.5" font-weight="700" fill="#C16A1F" text-anchor="middle">Snowflake</text>
+    <line x1="826" y1="187" x2="942" y2="187" stroke="#C16A1F" stroke-opacity="0.35"/>
+    <text x="884" y="208" font-size="10.5" fill="#44535F" text-anchor="middle">CUSTOMER360</text>
+    <text x="884" y="226" font-size="10.5" fill="#44535F" text-anchor="middle">ANALYTICS schema</text>
+    <text x="884" y="244" font-size="10.5" fill="#44535F" text-anchor="middle">Star schema · 5 tbl</text>
+  </g>
+
+  <!-- ===== Card 6: Analytics ===== -->
+  <g>
+    <rect x="1005" y="150" width="149" height="100" rx="9" fill="#FFFFFF" stroke="#AEDBCF" stroke-width="1.5"/>
+    <text x="1079" y="177" font-size="13.5" font-weight="700" fill="#1F8A70" text-anchor="middle">Analytics SQL</text>
+    <line x1="1021" y1="187" x2="1137" y2="187" stroke="#1F8A70" stroke-opacity="0.35"/>
+    <text x="1079" y="208" font-size="10.5" fill="#44535F" text-anchor="middle">6 query modules</text>
+    <text x="1079" y="226" font-size="10.5" fill="#44535F" text-anchor="middle">customer · sales</text>
+    <text x="1079" y="244" font-size="10.5" fill="#44535F" text-anchor="middle">products · geo …</text>
+  </g>
+
+  <!-- ===== Legend ===== -->
+  <g font-size="11.5" fill="#44535F">
+    <rect x="40" y="332" width="13" height="13" rx="3" fill="#FFFFFF" stroke="#CBD5DD" stroke-width="1.5"/>
+    <text x="60" y="343">Source</text>
+    <rect x="150" y="332" width="13" height="13" rx="3" fill="#FFFFFF" stroke="#BBD2EC" stroke-width="1.5"/>
+    <text x="170" y="343">ETL process</text>
+    <rect x="280" y="332" width="13" height="13" rx="3" fill="#FFF7EF" stroke="#E8C39A" stroke-width="1.5"/>
+    <text x="300" y="343">Warehouse</text>
+    <rect x="405" y="332" width="13" height="13" rx="3" fill="#FFFFFF" stroke="#AEDBCF" stroke-width="1.5"/>
+    <text x="425" y="343">Analytics</text>
+  </g>
+</svg>

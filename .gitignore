@@ -8,10 +8,11 @@ __pycache__/
 *.pyc
 *.pyo
 .pytest_cache/
+logs/
 
 # Data files (too large for git)
 data/raw/
-data/processed/
+data/processed
 
 # Tableau
 *.twbx
